@@ -4,9 +4,32 @@ import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Florida Paycheck Calculator 2026 - After Tax Take-Home Pay | MyPayCheckUSA',
-  description: 'Free Florida paycheck calculator for 2026. Calculate your take-home pay with accurate Federal + FICA tax. Florida has no state income tax.',
-  keywords: ['florida paycheck calculator', 'florida take home pay calculator', 'florida salary calculator', 'no state income tax', '2026 tax calculator'],
+  title: 'Florida Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+  description: 'Use our free Florida paycheck calculator to determine your take-home pay. Benefit from Florida\'s 0% state income tax and calculate federal withholdings accurately for 2026.',
+  keywords: [
+    'Florida paycheck calculator',
+    'free paycheck calculator',
+    'hourly paycheck calculator Florida',
+    'Florida weekly paycheck calculator',
+    'florida take home pay calculator',
+    'florida salary calculator',
+    'no state income tax',
+    '2026 tax calculator',
+  ],
+  alternates: {
+    canonical: '/florida',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/florida',
+    title: 'Florida Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+    description: 'Calculate your take-home pay with our free Florida paycheck calculator. 0% state income tax—see exact earnings after 2026 federal and FICA deductions.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Florida Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+    description: 'Calculate your take-home pay with our free Florida paycheck calculator with 0% state income tax.',
+  },
 };
 
 const faqs = [
@@ -79,13 +102,13 @@ export default function FloridaCalculator() {
               Florida residents still pay Federal income tax and FICA taxes. For 2026, the Federal tax brackets are:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li><strong>10%</strong> on income up to $11,600 (single) or $23,200 (married)</li>
-              <li><strong>12%</strong> on income between $11,600 - $47,150 (single) or $23,200 - $94,300 (married)</li>
-              <li><strong>22%</strong> on income between $47,150 - $100,000 (single) or $94,300 - $200,000 (married)</li>
-              <li><strong>24%</strong> on income between $100,000 - $200,000 (single) or $200,000 - $300,000 (married)</li>
+              <li><strong>10%</strong> on income up to $12,400 (single) or $24,800 (married)</li>
+              <li><strong>12%</strong> on income between $12,400 - $50,400 (single) or $24,800 - $100,800 (married)</li>
+              <li><strong>22%</strong> on income between $50,400 - $105,700 (single) or $100,800 - $211,400 (married)</li>
+              <li><strong>24%</strong> on income between $105,700 - $201,775 (single) or $211,400 - $403,550 (married)</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              FICA taxes total 7.65%: 6.2% for Social Security (up to $176,100 in 2026) and 1.45% for Medicare with no cap.
+              FICA taxes total 7.65%: 6.2% for Social Security (up to $184,500 in 2026) and 1.45% for Medicare with no cap.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Example: $20/hour in Florida</h3>
@@ -96,14 +119,14 @@ export default function FloridaCalculator() {
               For a single filer:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Federal tax: approximately $3,656</li>
+              <li>Federal tax: approximately $2,899</li>
               <li>State tax: $0 (Florida has no state income tax)</li>
               <li>FICA tax: $3,182 (7.65% of $41,600)</li>
-              <li>Total deductions: approximately $6,838</li>
-              <li>Take-home pay: approximately $34,762 annually</li>
+              <li>Total deductions: approximately $6,081</li>
+              <li>Take-home pay: approximately $35,519 annually</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Monthly take-home: approximately <strong>$2,897</strong>. Bi-weekly take-home: approximately <strong>$1,337</strong>. Compare this to California on the same salary, where you would pay roughly $1,800-$2,500 in additional state taxes.
+              Monthly take-home: approximately <strong>$2,960</strong>. Bi-weekly take-home: approximately <strong>$1,366</strong>. Compare this to California on the same salary, where you would pay roughly $1,800-$2,500 in additional state taxes.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Florida Tax-Friendly Benefits for Workers</h3>

@@ -15,35 +15,55 @@ export interface TaxResult {
   grossAnnual: number;
   grossMonthly: number;
   grossBiweekly: number;
+  grossWeekly: number;
+  grossSemimonthly: number;
   grossHourly: number;
   federalTax: number;
   stateTax: number;
   ficaTax: number;
+  caSdi: number;
   totalDeductions: number;
   takeHomeAnnual: number;
   takeHomeMonthly: number;
   takeHomeBiweekly: number;
+  takeHomeWeekly: number;
+  takeHomeSemimonthly: number;
   takeHomeHourly: number;
   effectiveTaxRate: number;
 }
 
-const FICA_RATE = 0.0765;
+const FICA_RATE_MEDICARE = 0.0145;
+const ADDITIONAL_MEDICARE_RATE = 0.009;
+const ADDITIONAL_MEDICARE_THRESHOLD_SINGLE = 200000;
+const ADDITIONAL_MEDICARE_THRESHOLD_MARRIED = 250000;
 const STANDARD_WEEKS_PER_YEAR = 52;
 
+const STANDARD_DEDUCTION_SINGLE = 16100;
+const STANDARD_DEDUCTION_MARRIED = 32200;
+
+const SS_WAGE_BASE = 184500;
+
+const CA_SDI_RATE = 0.011;
+const CA_SDI_WAGE_BASE = 157500;
+
 const FEDERAL_BRACKETS_SINGLE = [
-  { min: 0, max: 11600, rate: 0.10 },
-  { min: 11600, max: 47150, rate: 0.12 },
-  { min: 47150, max: 100000, rate: 0.22 },
-  { min: 100000, max: 200000, rate: 0.24 },
-  { min: 200000, max: Infinity, rate: 0.32 },
+  { min: 0, max: 12400, rate: 0.10 },
+  { min: 12400, max: 50400, rate: 0.12 },
+  { min: 50400, max: 105700, rate: 0.22 },
+  { min: 105700, max: 201775, rate: 0.24 },
+  { min: 201775, max: 256225, rate: 0.32 },
+  { min: 256225, max: 640600, rate: 0.35 },
+  { min: 640600, max: Infinity, rate: 0.37 },
 ];
 
 const FEDERAL_BRACKETS_MARRIED = [
-  { min: 0, max: 23200, rate: 0.10 },
-  { min: 23200, max: 94300, rate: 0.12 },
-  { min: 94300, max: 200000, rate: 0.22 },
-  { min: 200000, max: 300000, rate: 0.24 },
-  { min: 300000, max: Infinity, rate: 0.32 },
+  { min: 0, max: 24800, rate: 0.10 },
+  { min: 24800, max: 100800, rate: 0.12 },
+  { min: 100800, max: 211400, rate: 0.22 },
+  { min: 211400, max: 403550, rate: 0.24 },
+  { min: 403550, max: 512450, rate: 0.32 },
+  { min: 512450, max: 768700, rate: 0.35 },
+  { min: 768700, max: Infinity, rate: 0.37 },
 ];
 
 const STATE_TAX_CONFIGS: Record<string, { type: 'flat' | 'progressive'; rate?: number; brackets?: { min: number; max: number; rate: number }[] }> = {
@@ -122,32 +142,52 @@ export function calculatePaycheck(input: TaxInput): TaxResult {
 
   const totalGross = baseGross + overtimePay;
 
-  const federalTax = calculateFederalTax(totalGross, input.filingStatus);
+  const standardDeduction = input.filingStatus === 'single' ? STANDARD_DEDUCTION_SINGLE : STANDARD_DEDUCTION_MARRIED;
+  const federalTaxableIncome = Math.max(0, totalGross - standardDeduction);
+
+  const federalTax = calculateFederalTax(federalTaxableIncome, input.filingStatus);
   const stateTax = calculateStateTax(totalGross, input.state);
-  const ficaTax = totalGross * FICA_RATE;
-  const totalDeductions = federalTax + stateTax + ficaTax;
+
+  const ssTax = Math.min(totalGross, SS_WAGE_BASE) * 0.062;
+  const medicareTax = totalGross * FICA_RATE_MEDICARE;
+  const additionalMedicareThreshold = input.filingStatus === 'single' ? ADDITIONAL_MEDICARE_THRESHOLD_SINGLE : ADDITIONAL_MEDICARE_THRESHOLD_MARRIED;
+  const additionalMedicareTax = Math.max(0, totalGross - additionalMedicareThreshold) * ADDITIONAL_MEDICARE_RATE;
+  const ficaTax = ssTax + medicareTax + additionalMedicareTax;
+
+  const caSdi = input.state === 'california' ? Math.min(totalGross, CA_SDI_WAGE_BASE) * CA_SDI_RATE : 0;
+
+  const totalDeductions = federalTax + stateTax + ficaTax + caSdi;
   const takeHomeAnnual = totalGross - totalDeductions;
 
   const grossMonthly = totalGross / 12;
   const grossBiweekly = totalGross / 26;
+  const grossWeekly = totalGross / STANDARD_WEEKS_PER_YEAR;
+  const grossSemimonthly = totalGross / 24;
   const grossHourly = effectiveHoursPerWeek > 0 ? totalGross / (effectiveHoursPerWeek * (input.weeksPerYear || STANDARD_WEEKS_PER_YEAR)) : 0;
 
   const takeHomeMonthly = takeHomeAnnual / 12;
   const takeHomeBiweekly = takeHomeAnnual / 26;
+  const takeHomeWeekly = takeHomeAnnual / STANDARD_WEEKS_PER_YEAR;
+  const takeHomeSemimonthly = takeHomeAnnual / 24;
   const takeHomeHourly = effectiveHoursPerWeek > 0 ? takeHomeAnnual / (effectiveHoursPerWeek * (input.weeksPerYear || STANDARD_WEEKS_PER_YEAR)) : 0;
 
   return {
     grossAnnual: totalGross,
     grossMonthly,
     grossBiweekly,
+    grossWeekly,
+    grossSemimonthly,
     grossHourly,
     federalTax,
     stateTax,
     ficaTax,
+    caSdi,
     totalDeductions,
     takeHomeAnnual,
     takeHomeMonthly,
     takeHomeBiweekly,
+    takeHomeWeekly,
+    takeHomeSemimonthly,
     takeHomeHourly,
     effectiveTaxRate: totalGross > 0 ? (totalDeductions / totalGross) * 100 : 0,
   };

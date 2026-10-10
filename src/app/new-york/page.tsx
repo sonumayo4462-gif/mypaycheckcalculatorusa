@@ -4,9 +4,33 @@ import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'New York Paycheck Calculator 2026 - After Tax Take-Home Pay | MyPayCheckUSA',
-  description: 'Free New York paycheck calculator for 2026. Calculate your take-home pay with accurate Federal + New York state tax + FICA + NYC tax.',
-  keywords: ['new york paycheck calculator', 'new york take home pay calculator', 'new york salary calculator', 'nyc tax calculator', '2026 tax calculator'],
+  title: 'New York Paycheck Calculator 2026 - NY State & NYC Take-Home Pay',
+  description: 'Calculate your New York net take-home pay with our free paycheck calculator. Accurately factors in 2026 NY state tax, NYC resident tax, FICA, and federal rates.',
+  keywords: [
+    'New York paycheck calculator',
+    'NYC paycheck calculator',
+    'free paycheck calculator',
+    'hourly paycheck calculator New York',
+    'New York weekly paycheck calculator',
+    'new york take home pay calculator',
+    'new york salary calculator',
+    'nyc tax calculator',
+    '2026 tax calculator',
+  ],
+  alternates: {
+    canonical: '/new-york',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/new-york',
+    title: 'New York Paycheck Calculator 2026 - NY State & NYC Take-Home Pay',
+    description: 'Calculate your New York net take-home pay with our free paycheck calculator. Accurately factors in 2026 NY state tax, NYC resident tax, FICA, and federal rates.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'New York Paycheck Calculator 2026 - NY State & NYC Take-Home Pay',
+    description: 'Calculate your accurate New York take-home pay including state and NYC local taxes.',
+  },
 };
 
 const faqs = [
@@ -105,17 +129,18 @@ export default function NewYorkCalculator() {
               For a single filer (non-NYC resident) in New York:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Federal tax: approximately $8,216</li>
-              <li>New York State tax: approximately $3,096</li>
+              <li>Federal taxable income after standard deduction: $47,000</li>
+              <li>Federal tax: approximately $5,395</li>
+              <li>New York State tax: approximately $3,923</li>
               <li>FICA tax: $4,774 (7.65% of $62,400)</li>
-              <li>Total deductions: approximately $16,086</li>
-              <li>Take-home pay: approximately $46,314 annually</li>
+              <li>Total deductions: approximately $14,092</li>
+              <li>Take-home pay: approximately $48,308 annually</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Monthly take-home: approximately <strong>$3,860</strong>. Bi-weekly take-home: approximately <strong>$1,781</strong>.
+              Monthly take-home: approximately <strong>$4,026</strong>. Bi-weekly take-home: approximately <strong>$1,858</strong>.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Note: If you live in NYC, add approximately $2,000-$2,500 in additional NYC income tax, reducing your annual take-home to approximately $44,000.
+              Note: If you live in NYC, add approximately $2,000-$2,500 in additional NYC income tax, reducing your annual take-home to approximately $45,800-$46,300.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">New York vs Other States: Tax Comparison</h3>
@@ -137,7 +162,7 @@ export default function NewYorkCalculator() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">California</td>
                     <td className="px-4 py-3 text-sm text-gray-600">1% - 9.3%</td>
-                    <td className="px-4 py-3 text-sm text-amber-600 font-medium">~$2,900</td>
+                    <td className="px-4 py-3 text-sm text-amber-600 font-medium">~$2,343</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">Florida</td>
@@ -147,7 +172,7 @@ export default function NewYorkCalculator() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">New York</td>
                     <td className="px-4 py-3 text-sm text-gray-600">4% - 6.85%</td>
-                    <td className="px-4 py-3 text-sm text-red-600 font-medium">~$3,500</td>
+                    <td className="px-4 py-3 text-sm text-red-600 font-medium">~$3,711</td>
                   </tr>
                 </tbody>
               </table>

@@ -2,7 +2,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Disclaimer | MyPayCheckUSA',
-  description: 'Read the disclaimer for MyPayCheckUSA.com. Our calculators are for informational purposes only.',
+  description: 'Read the disclaimer for MyPayCheckUSA. Our calculators are for informational purposes only.',
+  alternates: {
+    canonical: '/disclaimer',
+  },
+  openGraph: {
+    url: '/disclaimer',
+  },
 };
 
 export default function Disclaimer() {
@@ -23,7 +29,7 @@ export default function Disclaimer() {
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">
-              The information provided by MyPayCheckUSA.com is for general informational purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.
+              The information provided by MyPayCheckUSA is for general informational purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the site.
             </p>
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Not Financial Advice</h2>
             <p className="text-gray-700 leading-relaxed mb-6">

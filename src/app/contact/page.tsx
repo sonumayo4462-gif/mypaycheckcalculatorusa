@@ -2,7 +2,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Contact Us | MyPayCheckUSA',
-  description: 'Contact MyPayCheckUSA.com for questions, feedback, or support regarding our paycheck calculators.',
+  description: 'Contact MyPayCheckUSA for questions, feedback, or support regarding our paycheck calculators.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    url: '/contact',
+  },
 };
 
 export default function Contact() {
@@ -26,10 +32,10 @@ export default function Contact() {
               For questions, feedback, or support regarding our paycheck calculators, please reach out to us. We&#39;re constantly working to improve our tools and add new features.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Email:</strong> contact@mypaycheckusa.com
+              <strong>Email:</strong> contact@mypaycheckcalculatorusa.com
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Address:</strong> MyPayCheckUSA.com, United States
+              <strong>Address:</strong> MyPayCheckUSA, United States
             </p>
           </div>
         </div>

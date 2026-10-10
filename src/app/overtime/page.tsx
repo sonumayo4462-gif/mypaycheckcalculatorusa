@@ -2,9 +2,32 @@ import type { Metadata } from 'next';
 import OvertimeCalculatorClient from './OvertimeCalculatorClient';
 
 export const metadata: Metadata = {
-  title: 'Overtime Calculator 2026 - Time and a Half + Double Time | MyPayCheckUSA',
-  description: 'Free overtime calculator for 2026. Calculate time and a half, double time, and holiday pay. Accurate overtime wage calculations.',
-  keywords: ['overtime calculator', 'time and a half calculator', 'double time calculator', 'overtime pay calculator', '2026'],
+  title: 'Overtime Paycheck Calculator 2026 - Time and a Half & Double Time',
+  description: 'Calculate your overtime earnings and take-home pay with our free overtime paycheck calculator. Supports 1.5x time-and-a-half and 2.0x double-time rates.',
+  keywords: [
+    'overtime paycheck calculator',
+    'overtime calculator',
+    'free paycheck calculator',
+    'time and a half calculator',
+    'double time calculator',
+    'hourly paycheck calculator',
+    'overtime pay calculator',
+    '2026',
+  ],
+  alternates: {
+    canonical: '/overtime',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/overtime',
+    title: 'Overtime Paycheck Calculator 2026 - Time and a Half & Double Time',
+    description: 'Calculate your overtime earnings and take-home pay with our free overtime paycheck calculator. Supports 1.5x and 2.0x rates.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Overtime Paycheck Calculator 2026 - Time and a Half & Double Time',
+    description: 'Calculate your overtime earnings and take-home pay with our free overtime paycheck calculator.',
+  },
 };
 
 export default function OvertimePage() {

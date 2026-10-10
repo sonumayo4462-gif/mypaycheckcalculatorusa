@@ -4,9 +4,32 @@ import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Texas Paycheck Calculator 2026 - After Tax Take-Home Pay | MyPayCheckUSA',
-  description: 'Free Texas paycheck calculator for 2026. Calculate your take-home pay with accurate Federal + FICA tax. Texas has no state income tax.',
-  keywords: ['texas paycheck calculator', 'texas take home pay calculator', 'texas salary calculator', 'no state income tax', '2026 tax calculator'],
+  title: 'Texas Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+  description: 'Calculate your take-home pay with our free Texas paycheck calculator. Texas has 0% state income tax—see your exact earnings after federal tax and FICA for 2026.',
+  keywords: [
+    'Texas paycheck calculator',
+    'free paycheck calculator',
+    'hourly paycheck calculator Texas',
+    'Texas weekly paycheck calculator',
+    'Texas take home pay calculator',
+    'Texas salary calculator',
+    'no state income tax',
+    '2026 tax calculator',
+  ],
+  alternates: {
+    canonical: '/texas',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/texas',
+    title: 'Texas Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+    description: 'Calculate your take-home pay with our free Texas paycheck calculator. 0% state income tax—see exact earnings after 2026 federal and FICA deductions.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Texas Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
+    description: 'Calculate your take-home pay with our free Texas paycheck calculator with 0% state income tax.',
+  },
 };
 
 const faqs = [
@@ -76,16 +99,16 @@ export default function TexasCalculator() {
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Federal Tax and FICA in Texas</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Even without state income tax, Texas residents still pay Federal income tax. For 2026, the Federal tax brackets remain progressive:
+              For 2026, the Federal tax brackets remain progressive:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li><strong>10%</strong> on income up to $11,600 (single) or $23,200 (married)</li>
-              <li><strong>12%</strong> on income between $11,600 - $47,150 (single) or $23,200 - $94,300 (married)</li>
-              <li><strong>22%</strong> on income between $47,150 - $100,000 (single) or $94,300 - $200,000 (married)</li>
-              <li><strong>24%</strong> on income between $100,000 - $200,000 (single) or $200,000 - $300,000 (married)</li>
+              <li><strong>10%</strong> on income up to $12,400 (single) or $24,800 (married)</li>
+              <li><strong>12%</strong> on income between $12,400 - $50,400 (single) or $24,800 - $100,800 (married)</li>
+              <li><strong>22%</strong> on income between $50,400 - $105,700 (single) or $100,800 - $211,400 (married)</li>
+              <li><strong>24%</strong> on income between $105,700 - $201,775 (single) or $211,400 - $403,550 (married)</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              FICA taxes total 7.65% of your gross pay: 6.2% for Social Security (up to the annual wage base limit of $176,100 in 2026) and 1.45% for Medicare with no income cap.
+              FICA taxes total 7.65% of your gross pay: 6.2% for Social Security (up to the annual wage base limit of $184,500 in 2026) and 1.45% for Medicare with no income cap.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Example: $25/hour in Texas</h3>
@@ -96,14 +119,15 @@ export default function TexasCalculator() {
               For a single filer with $52,000 gross income in 2026:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Federal tax: approximately $5,426</li>
+              <li>Federal taxable income after standard deduction: $35,900</li>
+              <li>Federal tax: approximately $4,060</li>
               <li>State tax: $0 (Texas has no state income tax)</li>
               <li>FICA tax: $3,978 (7.65% of $52,000)</li>
-              <li>Total deductions: $9,404</li>
-              <li>Take-home pay: approximately $42,596 annually</li>
+              <li>Total deductions: $8,038</li>
+              <li>Take-home pay: approximately $43,962 annually</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              That&#39;s a monthly take-home of approximately <strong>$3,550</strong> and a bi-weekly take-home of approximately <strong>$1,638</strong>. Compare this to California, where you might pay an additional $2,500-$4,000 in state taxes on the same salary.
+              That&#39;s a monthly take-home of approximately <strong>$3,664</strong> and a bi-weekly take-home of approximately <strong>$1,691</strong>. Compare this to California, where you might pay an additional $2,500-$4,000 in state taxes on the same salary.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Texas Paycheck Tax Brackets Summary</h3>
@@ -121,31 +145,31 @@ export default function TexasCalculator() {
                 <tbody className="divide-y divide-gray-200">
                   <tr>
                     <td className="px-4 py-3 text-sm text-gray-600">$30,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$1,865</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,420</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$0</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$2,295</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$25,840</td>
+                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$26,285</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm text-gray-600">$50,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$4,538</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,820</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$0</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$3,825</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$41,637</td>
+                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$42,355</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm text-gray-600">$75,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$8,538</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$7,670</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$0</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$5,738</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$60,725</td>
+                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$61,592</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm text-gray-600">$100,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$13,038</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$13,170</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$0</td>
                     <td className="px-4 py-3 text-sm text-gray-600">$7,650</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$79,312</td>
+                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$79,180</td>
                   </tr>
                 </tbody>
               </table>

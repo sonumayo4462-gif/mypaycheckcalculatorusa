@@ -2,7 +2,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us | MyPayCheckUSA',
-  description: 'Learn about MyPayCheckUSA.com, our mission to provide accurate paycheck calculators for USA workers.',
+  description: 'Learn about MyPayCheckUSA, our mission to provide accurate paycheck calculators for USA workers.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    url: '/about',
+  },
 };
 
 export default function About() {
@@ -23,13 +29,13 @@ export default function About() {
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">
-              MyPayCheckUSA.com was founded with a simple mission: to help American workers understand their true take-home pay. With tax systems becoming increasingly complex, too many people are surprised by the amount of money that disappears from their paychecks before they ever see it.
+              MyPayCheckUSA was founded with a simple mission: to help American workers understand their true take-home pay. With tax systems becoming increasingly complex, too many people are surprised by the amount of money that disappears from their paychecks before they ever see it.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
               Our team of financial experts and software engineers has built accurate, easy-to-use calculators that account for Federal taxes, state taxes, FICA, and other deductions. We update our calculators annually to reflect the latest tax brackets and rules.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Whether you&#39;re a Texas resident enjoying no state income tax, a California worker navigating progressive tax brackets, or a New Yorker dealing with state and city taxes, MyPayCheckUSA.com has the tools you need to plan your finances effectively.
+              Whether you&#39;re a Texas resident enjoying no state income tax, a California worker navigating progressive tax brackets, or a New Yorker dealing with state and city taxes, MyPayCheckUSA has the tools you need to plan your finances effectively.
             </p>
           </div>
         </div>

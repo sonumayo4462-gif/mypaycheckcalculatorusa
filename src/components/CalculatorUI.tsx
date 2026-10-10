@@ -168,14 +168,22 @@ export default function CalculatorUI({ state, stateName }: CalculatorUIProps) {
 
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Your Take-Home Pay</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               <div>
-                <p className="text-sm text-gray-600">Monthly</p>
-                <p className="text-xl font-bold text-blue-600">{formatCurrency(result.takeHomeMonthly)}</p>
+                <p className="text-sm text-gray-600">Weekly</p>
+                <p className="text-xl font-bold text-blue-600">{formatCurrency(result.takeHomeWeekly)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Bi-weekly</p>
                 <p className="text-xl font-bold text-blue-600">{formatCurrency(result.takeHomeBiweekly)}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Semi-monthly</p>
+                <p className="text-xl font-bold text-blue-600">{formatCurrency(result.takeHomeSemimonthly)}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Monthly</p>
+                <p className="text-xl font-bold text-blue-600">{formatCurrency(result.takeHomeMonthly)}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Hourly</p>
@@ -205,9 +213,15 @@ export default function CalculatorUI({ state, stateName }: CalculatorUIProps) {
                   <span className="font-semibold text-amber-600">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-emerald-50 rounded-lg">
-                  <span className="text-gray-600">FICA (7.65%)</span>
+                  <span className="text-gray-600">FICA</span>
                   <span className="font-semibold text-emerald-600">-{formatCurrency(result.ficaTax)}</span>
                 </div>
+                {state === 'california' && result.caSdi > 0 && (
+                  <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                    <span className="text-gray-600">CA SDI (1.1%)</span>
+                    <span className="font-semibold text-purple-600">-{formatCurrency(result.caSdi)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg border-2 border-blue-200">
                   <span className="font-semibold text-gray-900">Take-Home Pay</span>
                   <span className="font-bold text-blue-600 text-lg">{formatCurrency(result.takeHomeAnnual)}</span>

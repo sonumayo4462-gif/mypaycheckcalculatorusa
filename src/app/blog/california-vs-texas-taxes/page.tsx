@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: 'California vs Texas: Which State Keeps More of Your Paycheck? | MyPayCheckUSA',
   description: 'A detailed comparison of take-home pay between California and Texas. See how much you could save by moving states.',
   keywords: ['california vs texas taxes', 'which state has lower taxes', 'california vs texas cost of living', 'state tax comparison'],
+  alternates: {
+    canonical: '/blog/california-vs-texas-taxes',
+  },
+  openGraph: {
+    url: '/blog/california-vs-texas-taxes',
+  },
 };
 
 export default function CaliforniaVsTexas() {

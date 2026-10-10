@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: 'California Paycheck Tax Guide for 2026 | MyPayCheckUSA',
   description: 'Navigate California\'s progressive tax system. Learn about state disability insurance and how it affects your take-home pay.',
   keywords: ['california tax guide', 'california payroll tax', 'ca state tax', 'california take home pay'],
+  alternates: {
+    canonical: '/blog/california-tax-guide',
+  },
+  openGraph: {
+    url: '/blog/california-tax-guide',
+  },
 };
 
 export default function CaliforniaTaxGuide() {

@@ -4,9 +4,32 @@ import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'California Paycheck Calculator 2026 - After Tax Take-Home Pay | MyPayCheckUSA',
-  description: 'Free California paycheck calculator for 2026. Calculate your take-home pay with accurate Federal + California state tax + FICA.',
-  keywords: ['california paycheck calculator', 'california take home pay calculator', 'california salary calculator', 'ca tax calculator', '2026 tax calculator'],
+  title: 'California Paycheck Calculator 2026 - Hourly & Salary Take-Home Pay',
+  description: 'Estimate your California take-home pay with our free paycheck calculator. Includes 2026 progressive state tax (1%-12.3%), SDI (1.1%), and federal deductions.',
+  keywords: [
+    'California paycheck calculator',
+    'free paycheck calculator',
+    'California hourly paycheck calculator',
+    'California weekly paycheck calculator',
+    'california take home pay calculator',
+    'california salary calculator',
+    'ca tax calculator',
+    '2026 tax calculator',
+  ],
+  alternates: {
+    canonical: '/california',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/california',
+    title: 'California Paycheck Calculator 2026 - Hourly & Salary Take-Home Pay',
+    description: 'Estimate your California take-home pay with our free paycheck calculator. Includes 2026 progressive state tax, SDI (1.1%), and federal deductions.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'California Paycheck Calculator 2026 - Hourly & Salary Take-Home Pay',
+    description: 'Calculate your accurate California take-home pay after progressive state tax and SDI deductions.',
+  },
 };
 
 const faqs = [
@@ -90,9 +113,9 @@ export default function CaliforniaCalculator() {
               In addition to state income tax, California workers also contribute to:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li><strong>State Disability Insurance (SDI):</strong> 1.1% of wages up to $153,164 (2026 limit)</li>
-              <li><strong>Federal income tax:</strong> Progressive rates from 10% to 37%</li>
-              <li><strong>FICA:</strong> 7.65% (Social Security + Medicare)</li>
+              <li><strong>State Disability Insurance (SDI):</strong> 1.1% of wages up to $157,500 (2026 limit)</li>
+              <li><strong>Federal income tax:</strong> Progressive rates from 10% to 37% with standard deduction of $15,400 (single) or $30,800 (married)</li>
+              <li><strong>FICA:</strong> 7.65% (Social Security up to $184,500 + Medicare)</li>
             </ul>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Example: $30/hour in California</h3>
@@ -103,15 +126,16 @@ export default function CaliforniaCalculator() {
               For a single filer with $62,400 gross income in California:
             </p>
             <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-              <li>Federal tax: approximately $8,216</li>
-              <li>California state tax: approximately $3,096</li>
+              <li>Federal taxable income after standard deduction: $47,000</li>
+              <li>Federal tax: approximately $5,395</li>
+              <li>California state tax: approximately $2,535</li>
               <li>SDI: $686 (1.1% of $62,400)</li>
               <li>FICA tax: $4,774 (7.65% of $62,400)</li>
-              <li>Total deductions: approximately $16,772</li>
-              <li>Take-home pay: approximately $45,628 annually</li>
+              <li>Total deductions: approximately $13,390</li>
+              <li>Take-home pay: approximately $49,010 annually</li>
             </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Monthly take-home: approximately <strong>$3,802</strong>. Bi-weekly take-home: approximately <strong>$1,755</strong>. The California state tax alone in this example is about $258 per month.
+              Monthly take-home: approximately <strong>$4,084</strong>. Bi-weekly take-home: approximately <strong>$1,885</strong>. The California state tax alone in this example is about $211 per month.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">California vs Other States: Tax Comparison</h3>
@@ -133,7 +157,7 @@ export default function CaliforniaCalculator() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">California</td>
                     <td className="px-4 py-3 text-sm text-gray-600">1% - 9.3%</td>
-                    <td className="px-4 py-3 text-sm text-amber-600 font-medium">~$2,900</td>
+                    <td className="px-4 py-3 text-sm text-amber-600 font-medium">~$2,343</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">Florida</td>
@@ -143,7 +167,7 @@ export default function CaliforniaCalculator() {
                   <tr>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">New York</td>
                     <td className="px-4 py-3 text-sm text-gray-600">4% - 6.85%</td>
-                    <td className="px-4 py-3 text-sm text-amber-600 font-medium">~$2,200</td>
+                    <td className="px-4 py-3 text-sm text-red-600 font-medium">~$3,711</td>
                   </tr>
                 </tbody>
               </table>

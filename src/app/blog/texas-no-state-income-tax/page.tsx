@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: 'Texas Has No State Income Tax: Complete Guide 2026 | MyPayCheckUSA',
   description: 'Discover how Texas\'s tax-friendly environment affects your paycheck. No state income tax means more take-home pay for Texas residents.',
   keywords: ['texas no state income tax', 'texas tax benefits', 'texas financial benefits', 'no state income tax states'],
+  alternates: {
+    canonical: '/blog/texas-no-state-income-tax',
+  },
+  openGraph: {
+    url: '/blog/texas-no-state-income-tax',
+  },
 };
 
 export default function TexasNoStateIncomeTax() {

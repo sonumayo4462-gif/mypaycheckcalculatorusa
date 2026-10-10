@@ -2,7 +2,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | MyPayCheckUSA',
-  description: 'Read the privacy policy for MyPayCheckUSA.com. Learn how we protect your data.',
+  description: 'Read the privacy policy for MyPayCheckUSA. Learn how we protect your data.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
+  openGraph: {
+    url: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -13,7 +19,7 @@ export default function PrivacyPolicy() {
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              How we protect your data and privacy at MyPayCheckUSA.com
+              How we protect your data and privacy at MyPayCheckUSA
             </p>
           </div>
         </div>
@@ -23,7 +29,7 @@ export default function PrivacyPolicy() {
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">
-              At MyPayCheckUSA.com, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
+              At MyPayCheckUSA, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our website.
             </p>
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Information We Collect</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -39,7 +45,7 @@ export default function PrivacyPolicy() {
             </p>
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Contact</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              If you have any questions about this Privacy Policy, please contact us at contact@mypaycheckusa.com.
+              If you have any questions about this Privacy Policy, please contact us at contact@mypaycheckcalculatorusa.com.
             </p>
           </div>
         </div>

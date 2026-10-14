@@ -52,9 +52,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T"></script>
+       <Head>
+         {/* Google tag (gtag.js) */}
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

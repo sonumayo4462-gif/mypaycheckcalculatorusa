@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { SITE_URL } from '@/lib/site';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -51,6 +52,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <Head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JKGRGEVH2T');
+          `}
+        </script>
+      </Head>
       <body className={inter.className}>
         <Header />
         <main className="min-h-screen">{children}</main>

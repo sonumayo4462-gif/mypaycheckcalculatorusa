@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import CalculatorUI from '@/components/CalculatorUI';
 import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'New York Paycheck Calculator 2026 - NY State & NYC Take-Home Pay',
@@ -50,15 +51,50 @@ const faqs = [
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'New York Paycheck Calculator 2026',
+      url: `${SITE_URL}/new-york`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Calculate your New York net take-home pay factoring in 2026 NY state tax, NYC resident tax, FICA, and federal deductions.',
     },
-  })),
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'New York Paycheck Calculator',
+          item: `${SITE_URL}/new-york`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 };
 
 export default function NewYorkCalculator() {

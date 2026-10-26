@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import OvertimeCalculatorClient from './OvertimeCalculatorClient';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Overtime Paycheck Calculator 2026 - Time and a Half & Double Time',
@@ -30,6 +31,43 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Overtime Paycheck Calculator 2026',
+      url: `${SITE_URL}/overtime`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Calculate time-and-a-half (1.5x) and double-time (2.0x) overtime pay and total earnings with our free 2026 overtime calculator.',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Overtime Calculator',
+          item: `${SITE_URL}/overtime`,
+        },
+      ],
+    },
+  ],
+};
+
 export default function OvertimePage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -48,6 +86,11 @@ export default function OvertimePage() {
       </div>
 
       <OvertimeCalculatorClient />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

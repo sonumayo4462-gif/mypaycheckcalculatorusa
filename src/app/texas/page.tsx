@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import CalculatorUI from '@/components/CalculatorUI';
 import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Texas Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
@@ -49,15 +50,50 @@ const faqs = [
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Texas Paycheck Calculator 2026',
+      url: `${SITE_URL}/texas`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Calculate your take-home pay with 0% Texas state income tax and accurate 2026 federal and FICA deductions.',
     },
-  })),
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Texas Paycheck Calculator',
+          item: `${SITE_URL}/texas`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 };
 
 export default function TexasCalculator() {

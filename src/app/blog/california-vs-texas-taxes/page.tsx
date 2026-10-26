@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'California vs Texas: Which State Keeps More of Your Paycheck? | MyPayCheckUSA',
+  title: 'California vs Texas: Which State Keeps More of Your Paycheck?',
   description: 'A detailed comparison of take-home pay between California and Texas. See how much you could save by moving states.',
   keywords: ['california vs texas taxes', 'which state has lower taxes', 'california vs texas cost of living', 'state tax comparison'],
   alternates: {
@@ -11,6 +12,62 @@ export const metadata: Metadata = {
   openGraph: {
     url: '/blog/california-vs-texas-taxes',
   },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      headline: 'California vs Texas: Which State Keeps More of Your Paycheck?',
+      description: 'A detailed comparison of take-home pay between California and Texas. See how much you could save by moving states.',
+      url: `${SITE_URL}/blog/california-vs-texas-taxes`,
+      datePublished: '2026-02-01T00:00:00Z',
+      dateModified: '2026-02-01T00:00:00Z',
+      image: `${SITE_URL}/og-image.jpg`,
+      author: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/og-image.jpg`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/blog/california-vs-texas-taxes`,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blog',
+          item: `${SITE_URL}/blog`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'California vs Texas Taxes',
+          item: `${SITE_URL}/blog/california-vs-texas-taxes`,
+        },
+      ],
+    },
+  ],
 };
 
 export default function CaliforniaVsTexas() {
@@ -100,6 +157,11 @@ export default function CaliforniaVsTexas() {
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

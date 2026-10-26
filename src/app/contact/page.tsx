@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | MyPayCheckUSA',
+  title: 'Contact Us',
   description: 'Contact MyPayCheckUSA for questions, feedback, or support regarding our paycheck calculators.',
   alternates: {
     canonical: '/contact',

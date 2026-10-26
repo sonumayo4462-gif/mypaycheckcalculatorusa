@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import CalculatorUI from '@/components/CalculatorUI';
 import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Florida Paycheck Calculator 2026 - Free Hourly & Salary Take-Home Pay',
@@ -49,15 +50,50 @@ const faqs = [
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'Florida Paycheck Calculator 2026',
+      url: `${SITE_URL}/florida`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Use our free Florida paycheck calculator to calculate take-home pay with 0% state income tax and accurate 2026 federal withholdings.',
     },
-  })),
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Florida Paycheck Calculator',
+          item: `${SITE_URL}/florida`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 };
 
 export default function FloridaCalculator() {

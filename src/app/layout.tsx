@@ -44,11 +44,20 @@ export const metadata: Metadata = {
     siteName: 'MyPayCheckUSA',
     title: 'Paycheck Calculator 2026 - Free Take-Home Pay & Tax Calculator',
     description: 'Calculate your accurate take-home pay after federal, state, and FICA taxes. Free state-wise paycheck calculators.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MyPayCheckUSA - Free Paycheck Calculator 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Paycheck Calculator 2026 - Free Take-Home Pay & Tax Calculator',
     description: 'Calculate your accurate take-home pay after federal, state, and FICA taxes.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -60,10 +69,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <Script
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T"
       />
-      <Script strategy="beforeInteractive">
+      <Script strategy="afterInteractive">
         {gtagScript}
       </Script>
       <body className={inter.className}>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import CalculatorUI from '@/components/CalculatorUI';
 import AdSensePlaceholder from '@/components/AdSensePlaceholder';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'California Paycheck Calculator 2026 - Hourly & Salary Take-Home Pay',
@@ -49,15 +50,50 @@ const faqs = [
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
+  '@graph': [
+    {
+      '@type': 'WebApplication',
+      name: 'California Paycheck Calculator 2026',
+      url: `${SITE_URL}/california`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      browserRequirements: 'Requires JavaScript',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'Estimate your California take-home pay with 2026 progressive state tax (1%-12.3%), SDI (1.1%), and federal deductions.',
     },
-  })),
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'California Paycheck Calculator',
+          item: `${SITE_URL}/california`,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 };
 
 export default function CaliforniaCalculator() {

@@ -117,6 +117,18 @@ const homeJsonLd = {
       description: 'Free USA paycheck calculator to estimate take-home pay for hourly and salaried employees with 2026 federal, state, and FICA taxes.',
     },
     {
+      '@type': 'WebSite',
+      name: 'MyPayCheckUSA',
+      url: SITE_URL,
+      description: 'Free USA paycheck calculator to estimate take-home pay for hourly and salaried employees with 2026 federal, state, and FICA taxes.',
+    },
+    {
+      '@type': 'Organization',
+      name: 'MyPayCheckUSA',
+      url: SITE_URL,
+      logo: `${SITE_URL}/og-image.jpg`,
+    },
+    {
       '@type': 'FAQPage',
       mainEntity: faqs.map((faq) => ({
         '@type': 'Question',

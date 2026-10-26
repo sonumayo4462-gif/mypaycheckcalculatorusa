@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer | MyPayCheckUSA',
+  title: 'Disclaimer',
   description: 'Read the disclaimer for MyPayCheckUSA. Our calculators are for informational purposes only.',
   alternates: {
     canonical: '/disclaimer',

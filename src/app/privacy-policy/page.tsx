@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | MyPayCheckUSA',
+  title: 'Privacy Policy',
   description: 'Read the privacy policy for MyPayCheckUSA. Learn how we protect your data.',
   alternates: {
     canonical: '/privacy-policy',

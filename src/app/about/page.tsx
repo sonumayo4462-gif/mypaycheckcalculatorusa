@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us | MyPayCheckUSA',
+  title: 'About Us',
   description: 'Learn about MyPayCheckUSA, our mission to provide accurate paycheck calculators for USA workers.',
   alternates: {
     canonical: '/about',

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Texas Has No State Income Tax: Complete Guide 2026 | MyPayCheckUSA',
+  title: 'Texas Has No State Income Tax: Complete Guide 2026',
   description: 'Discover how Texas\'s tax-friendly environment affects your paycheck. No state income tax means more take-home pay for Texas residents.',
   keywords: ['texas no state income tax', 'texas tax benefits', 'texas financial benefits', 'no state income tax states'],
   alternates: {
@@ -11,6 +12,62 @@ export const metadata: Metadata = {
   openGraph: {
     url: '/blog/texas-no-state-income-tax',
   },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      headline: 'Texas Has No State Income Tax: Complete Guide 2026',
+      description: 'Discover how Texas\'s tax-friendly environment affects your paycheck. No state income tax means more take-home pay for Texas residents.',
+      url: `${SITE_URL}/blog/texas-no-state-income-tax`,
+      datePublished: '2026-01-15T00:00:00Z',
+      dateModified: '2026-01-15T00:00:00Z',
+      image: `${SITE_URL}/og-image.jpg`,
+      author: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/og-image.jpg`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/blog/texas-no-state-income-tax`,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blog',
+          item: `${SITE_URL}/blog`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Texas No State Income Tax',
+          item: `${SITE_URL}/blog/texas-no-state-income-tax`,
+        },
+      ],
+    },
+  ],
 };
 
 export default function TexasNoStateIncomeTax() {
@@ -91,6 +148,11 @@ export default function TexasNoStateIncomeTax() {
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

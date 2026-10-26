@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.mypaycheckcalculatorusa.com'
+  const baseUrl = SITE_URL
 
   const pages = [
     { url: baseUrl, priority: 1, changeFrequency: 'weekly' as const },

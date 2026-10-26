@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'California Paycheck Tax Guide for 2026 | MyPayCheckUSA',
+  title: 'California Paycheck Tax Guide for 2026',
   description: 'Navigate California\'s progressive tax system. Learn about state disability insurance and how it affects your take-home pay.',
   keywords: ['california tax guide', 'california payroll tax', 'ca state tax', 'california take home pay'],
   alternates: {
@@ -11,6 +12,62 @@ export const metadata: Metadata = {
   openGraph: {
     url: '/blog/california-tax-guide',
   },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      headline: 'California Paycheck Tax Guide for 2026',
+      description: 'Navigate California\'s progressive tax system. Learn about state disability insurance and how it affects your take-home pay.',
+      url: `${SITE_URL}/blog/california-tax-guide`,
+      datePublished: '2026-01-20T00:00:00Z',
+      dateModified: '2026-01-20T00:00:00Z',
+      image: `${SITE_URL}/og-image.jpg`,
+      author: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'MyPayCheckUSA',
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/og-image.jpg`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/blog/california-tax-guide`,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE_URL,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Blog',
+          item: `${SITE_URL}/blog`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'California Paycheck Tax Guide',
+          item: `${SITE_URL}/blog/california-tax-guide`,
+        },
+      ],
+    },
+  ],
 };
 
 export default function CaliforniaTaxGuide() {
@@ -67,6 +124,11 @@ export default function CaliforniaTaxGuide() {
           </Link>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

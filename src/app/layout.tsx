@@ -68,14 +68,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T"
-      />
-      <Script strategy="afterInteractive">
-        {gtagScript}
-      </Script>
       <body className={inter.className}>
+        <Script id="gtag-js" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-JKGRGEVH2T" />
+        <Script id="gtag-init" strategy="afterInteractive">{gtagScript}</Script>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

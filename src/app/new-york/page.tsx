@@ -40,12 +40,28 @@ const faqs = [
     answer: 'Yes, New York City has its own separate city-level income tax in addition to New York State income tax. NYC income tax rates range from approximately 3.078% to 3.876% depending on your income and filing status.',
   },
   {
+    question: 'How much is $60,000 salary after taxes in New York?',
+    answer: 'In 2026, a $60,000 salary in New York State yields approximately $46,678 in net take-home pay for a single filer ($3,890/month or $1,795 bi-weekly). Total deductions of $13,322 include $5,020 federal tax, $3,712 NY state tax, and $4,590 FICA (excluding NYC local tax).',
+  },
+  {
+    question: 'How much is $30 an hour after taxes in New York?',
+    answer: 'At $30/hour working 40 hours per week ($62,400 gross annually), your estimated take-home pay in NY State is $931 weekly, $1,861 bi-weekly, or $48,390 annually, reflecting an effective hourly rate of $23.27/hr.',
+  },
+  {
+    question: 'How much is $100,000 salary after taxes in New York?',
+    answer: 'A $100,000 salary in New York State nets approximately $71,940 annually for a single filer ($5,995/month or $2,767 bi-weekly). Total deductions are $28,060 ($13,170 federal, $7,240 NY state, and $7,650 FICA).',
+  },
+  {
+    question: 'Do non-residents pay New York City tax?',
+    answer: 'No, NYC personal income tax only applies to full-time or part-time residents of the 5 NYC boroughs. If you live in Long Island, Westchester, or New Jersey and commute into NYC, you do not pay NYC personal income tax.',
+  },
+  {
     question: 'What is the New York state income tax rate?',
-    answer: 'New York has a progressive state income tax system with rates ranging from 4% to 6.85% for regular wages in 2026. The exact rate depends on your taxable income and filing status. New York City residents also pay an additional city income tax.',
+    answer: 'New York has a progressive state income tax system with rates ranging from 4% to 8.82% for regular wages in 2026 depending on taxable income tiers.',
   },
   {
     question: 'How can I reduce my New York state tax?',
-    answer: 'New York offers several tax credits and deductions including the New York State Earned Income Tax Credit (NY EITC), property tax relief through STAR programs, and various itemized deductions. Contributing to 529 college savings plans can also provide tax benefits.',
+    answer: 'New York offers several tax credits and deductions including the New York State Earned Income Tax Credit (NY EITC), property tax relief through STAR programs, and contributions to traditional 401(k) or New York 529 college savings plans.',
   },
 ];
 
@@ -178,6 +194,158 @@ export default function NewYorkCalculator() {
             <p className="text-gray-700 leading-relaxed mb-6">
               Note: If you live in NYC, add approximately $2,000-$2,500 in additional NYC income tax, reducing your annual take-home to approximately $45,800-$46,300.
             </p>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">New York Salary Take-Home Pay Breakdown (2026)</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Here is how popular annual salaries in New York State translate into take-home pay for single filers after federal income tax, NY progressive state tax (4%-8.82%), and FICA deductions (excluding NYC city tax):
+            </p>
+            <div className="overflow-x-auto mb-8">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Gross Annual</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Bi-Weekly Pay</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Monthly Pay</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Total Deductions</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Annual Take-Home</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$30,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$949</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,057</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$5,317</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$24,683</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$40,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,233</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,671</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$7,953</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$32,047</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$50,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,515</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,283</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$10,603</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$39,397</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$60,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,795</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,890</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$13,322</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$46,678</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$75,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,175</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$4,713</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$18,443</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$56,557</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$80,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,294</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$4,969</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$20,366</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$59,634</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$100,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,767</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$5,995</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$28,060</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$71,940</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$120,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,240</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$7,020</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$35,754</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$84,246</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$150,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,928</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$8,512</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$47,859</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$102,141</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">New York Hourly Wage to Take-Home Pay (40 hrs/week)</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Here is what your NY hourly wages equal in take-home pay after standard federal and state payroll taxes:
+            </p>
+            <div className="overflow-x-auto mb-8">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Hourly Rate</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Gross Annual</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Weekly Net</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Bi-Weekly Net</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Effective Hourly</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$15.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$31,200</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$492</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$983</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$12.29/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$20.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$41,600</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$639</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,278</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$15.97/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$25.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$52,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$786</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,572</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$19.65/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$30.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$62,400</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$931</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,861</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$23.27/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$35.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$72,800</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,062</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,123</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$26.54/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$40.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$83,200</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,185</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,369</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$29.62/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$50.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$104,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,431</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,862</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$35.77/hr</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">New York vs Other States: Tax Comparison</h3>
             <div className="overflow-x-auto">

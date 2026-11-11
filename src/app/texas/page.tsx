@@ -43,8 +43,24 @@ const faqs = [
     answer: 'In Texas, your paycheck will have Federal income tax withheld based on your filing status and income bracket. Additionally, FICA taxes of 7.65% (6.2% Social Security up to wage base limit + 1.45% Medicare) are deducted.',
   },
   {
+    question: 'How much is $50,000 a year after taxes in Texas?',
+    answer: 'In 2026, a $50,000 annual salary in Texas yields approximately $42,355 in take-home pay for a single filer ($3,530/month or $1,629 bi-weekly). Total deductions are $7,645 ($3,820 federal tax + $3,825 FICA, and $0 state tax).',
+  },
+  {
+    question: 'How much is $20 an hour after taxes in Texas?',
+    answer: 'At $20 per hour working 40 hours per week ($41,600 gross annually), your estimated take-home pay in Texas is $685 per week, $1,369 bi-weekly, or $34,320 annually after federal and FICA deductions.',
+  },
+  {
+    question: 'How much is $100,000 salary after taxes in Texas?',
+    answer: 'A $100,000 salary in Texas nets approximately $79,180 annually for a single filer ($6,598 per month or $3,045 bi-weekly). You pay $13,170 in federal income tax and $7,650 in FICA taxes with zero state tax.',
+  },
+  {
+    question: 'Does Texas tax overtime pay?',
+    answer: 'Texas does not impose any state tax on overtime pay. However, federal withholding and 7.65% FICA taxes still apply to all overtime earnings at the standard 1.5x time-and-a-half rate.',
+  },
+  {
     question: 'Is Texas a good state for high earners?',
-    answer: 'Yes, Texas is extremely tax-friendly for high earners. With no state income tax, no capital gains tax, and relatively low property taxes compared to states like California or New York, high-income earners can save tens of thousands annually.',
+    answer: 'Yes, Texas is extremely tax-friendly for high earners. With no state income tax, no capital gains tax, and no municipal income taxes, high-income earners save thousands compared to states like California or New York.',
   },
 ];
 
@@ -166,46 +182,153 @@ export default function TexasCalculator() {
               That&#39;s a monthly take-home of approximately <strong>$3,664</strong> and a bi-weekly take-home of approximately <strong>$1,691</strong>. Compare this to California, where you might pay an additional $2,500-$4,000 in state taxes on the same salary.
             </p>
 
-            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Texas Paycheck Tax Brackets Summary</h3>
-            <div className="overflow-x-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Texas Salary Take-Home Pay Breakdown (2026)</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Here is how common annual salaries in Texas translate into take-home pay for single filers after federal income tax and 7.65% FICA deductions (0% state tax):
+            </p>
+            <div className="overflow-x-auto mb-8">
               <table className="min-w-full bg-white border border-gray-200 rounded-lg">
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Gross Annual</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Federal Tax</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">State Tax</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">FICA</th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Take-Home</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Bi-Weekly Pay</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Monthly Pay</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Total Taxes</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Annual Take-Home</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   <tr>
-                    <td className="px-4 py-3 text-sm text-gray-600">$30,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$1,420</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$0</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$2,295</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$26,285</td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$30,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,011</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,190</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$3,715</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$26,285</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 text-sm text-gray-600">$50,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$3,820</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$0</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$3,825</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$42,355</td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$40,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,320</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,860</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$5,680</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$34,320</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 text-sm text-gray-600">$75,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$7,670</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$0</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$5,738</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$61,592</td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$50,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,629</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,530</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$7,645</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$42,355</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 text-sm text-gray-600">$100,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$13,170</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$0</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">$7,650</td>
-                    <td className="px-4 py-3 text-sm font-medium text-blue-600">$79,180</td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$60,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,938</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$4,199</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$9,610</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$50,390</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$75,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,369</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$5,133</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$13,408</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$61,592</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$80,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,504</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$5,426</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$14,890</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$65,110</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$100,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,045</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$6,598</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$20,820</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$79,180</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$120,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,587</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$7,771</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$26,750</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$93,250</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$150,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$4,377</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$9,483</td>
+                    <td className="px-4 py-3 text-sm text-red-600">$36,209</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-600">$113,791</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Texas Hourly Wage to Take-Home Pay (40 hrs/week)</h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              If you work hourly in Texas, here is what your paycheck looks like on a standard 40-hour workweek (2,080 hours annually):
+            </p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Hourly Rate</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Gross Annual</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Weekly Net</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Bi-Weekly Net</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Effective Hourly</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$15.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$31,200</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$524</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,048</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$13.10/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$20.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$41,600</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$685</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,369</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$17.12/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$25.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$52,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$845</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,691</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$21.14/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$30.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$62,400</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,006</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,012</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$25.15/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$35.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$72,800</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,155</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,309</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$28.87/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$40.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$83,200</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,295</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$2,591</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$32.39/hr</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900">$50.00/hr</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$104,000</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$1,577</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">$3,154</td>
+                    <td className="px-4 py-3 text-sm font-semibold text-blue-600">$39.42/hr</td>
                   </tr>
                 </tbody>
               </table>

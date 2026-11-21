@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     'take home pay tips',
     'Texas tax guide',
     'California tax guide',
+    'Washington tax guide',
+    'Nevada paycheck guide',
+    'Illinois tax guide',
+    'Pennsylvania paycheck guide',
   ],
   alternates: {
     canonical: '/blog',
@@ -49,6 +53,38 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  {
+    title: 'Washington State Paycheck Tax Guide 2026: No Income Tax & Paid Leave',
+    excerpt: 'Learn how Washington\'s 0% personal income tax, Paid Family and Medical Leave (PFML), and WA Cares Fund deductions affect your net pay.',
+    href: '/blog/washington-state-tax-guide',
+    tag: 'Washington',
+    color: 'bg-emerald-500',
+    date: '2026-11-21',
+  },
+  {
+    title: 'Nevada Paycheck Tax Guide 2026: Zero Income Tax & Tip Regulations',
+    excerpt: 'Comprehensive guide to Nevada take-home pay, federal withholdings, gaming and hospitality tip compliance, and cost of living advantages.',
+    href: '/blog/nevada-paycheck-tax-guide',
+    tag: 'Nevada',
+    color: 'bg-amber-500',
+    date: '2026-11-21',
+  },
+  {
+    title: 'Illinois Paycheck Tax Guide 2026: Understanding the 4.95% Flat Tax',
+    excerpt: 'Everything you need to know about Illinois\'s constitutional 4.95% flat state tax, standard exemptions, and Chicago payroll withholdings.',
+    href: '/blog/illinois-flat-tax-paycheck-guide',
+    tag: 'Illinois',
+    color: 'bg-indigo-500',
+    date: '2026-11-21',
+  },
+  {
+    title: 'Pennsylvania Paycheck Tax Guide 2026: 3.07% Flat Tax & Local Wage Taxes',
+    excerpt: 'Master Pennsylvania\'s lowest-in-the-nation 3.07% flat tax, Philadelphia wage taxes, Act 32 local EIT, and take-home pay calculations.',
+    href: '/blog/pennsylvania-paycheck-tax-guide',
+    tag: 'Pennsylvania',
+    color: 'bg-blue-600',
+    date: '2026-11-21',
+  },
   {
     title: 'Texas Has No State Income Tax: Complete Guide 2026',
     excerpt: 'Discover how Texas\'s tax-friendly environment affects your paycheck and why so many Americans are moving to the Lone Star State.',
@@ -79,6 +115,10 @@ const calculators = [
   { name: 'Texas Paycheck Calculator', href: '/texas', note: '0% State Tax' },
   { name: 'California Paycheck Calculator', href: '/california', note: 'Progressive Tax & SDI' },
   { name: 'Florida Paycheck Calculator', href: '/florida', note: '0% Personal Tax' },
+  { name: 'Washington Paycheck Calculator', href: '/washington', note: '0% State Income Tax' },
+  { name: 'Nevada Paycheck Calculator', href: '/nevada', note: '0% State Income Tax' },
+  { name: 'Illinois Paycheck Calculator', href: '/illinois', note: '4.95% Flat State Tax' },
+  { name: 'Pennsylvania Paycheck Calculator', href: '/pennsylvania', note: '3.07% Flat State Tax' },
   { name: 'New York Paycheck Calculator', href: '/new-york', note: 'State & NYC Tax' },
   { name: 'Overtime Calculator', href: '/overtime', note: '1.5x & 2.0x Rates' },
 ];

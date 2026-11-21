@@ -23,6 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/blog/texas-no-state-income-tax`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/blog/california-tax-guide`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/blog/california-vs-texas-taxes`, priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/blog/washington-state-tax-guide`, priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/blog/nevada-paycheck-tax-guide`, priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/blog/illinois-flat-tax-paycheck-guide`, priority: 0.7, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/blog/pennsylvania-paycheck-tax-guide`, priority: 0.7, changeFrequency: 'monthly' as const },
   ]
 
   return pages.map((page) => ({

@@ -20,11 +20,15 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Calculators</h3>
             <ul className="space-y-2">
-              <li><Link href="/texas" className="text-gray-400 hover:text-white transition-colors">Texas</Link></li>
-              <li><Link href="/california" className="text-gray-400 hover:text-white transition-colors">California</Link></li>
-              <li><Link href="/florida" className="text-gray-400 hover:text-white transition-colors">Florida</Link></li>
-              <li><Link href="/new-york" className="text-gray-400 hover:text-white transition-colors">New York</Link></li>
-              <li><Link href="/overtime" className="text-gray-400 hover:text-white transition-colors">Overtime</Link></li>
+              <li><Link href="/texas" className="text-gray-400 hover:text-white transition-colors">Texas Paycheck</Link></li>
+              <li><Link href="/california" className="text-gray-400 hover:text-white transition-colors">California Paycheck</Link></li>
+              <li><Link href="/florida" className="text-gray-400 hover:text-white transition-colors">Florida Paycheck</Link></li>
+              <li><Link href="/washington" className="text-gray-400 hover:text-white transition-colors">Washington Paycheck</Link></li>
+              <li><Link href="/nevada" className="text-gray-400 hover:text-white transition-colors">Nevada Paycheck</Link></li>
+              <li><Link href="/new-york" className="text-gray-400 hover:text-white transition-colors">New York Paycheck</Link></li>
+              <li><Link href="/illinois" className="text-gray-400 hover:text-white transition-colors">Illinois Paycheck</Link></li>
+              <li><Link href="/pennsylvania" className="text-gray-400 hover:text-white transition-colors">Pennsylvania Paycheck</Link></li>
+              <li><Link href="/overtime" className="text-gray-400 hover:text-white transition-colors">Overtime Calculator</Link></li>
             </ul>
           </div>
 

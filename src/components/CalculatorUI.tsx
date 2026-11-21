@@ -1,45 +1,65 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AdSensePlaceholder from './AdSensePlaceholder';
-import { calculatePaycheck, formatCurrency, TaxInput, TaxResult, FilingStatus } from '@/lib/taxCalculations';
+import { calculatePaycheck, formatCurrency, TaxInput, TaxResult, FilingStatus, SUPPORTED_STATES } from '@/lib/taxCalculations';
 
 interface CalculatorUIProps {
-  state: string;
-  stateName: string;
+  state?: string;
+  stateName?: string;
+  allowStateSelect?: boolean;
 }
 
-export default function CalculatorUI({ state, stateName }: CalculatorUIProps) {
+export default function CalculatorUI({ state = 'texas', stateName, allowStateSelect = false }: CalculatorUIProps) {
+  const [selectedState, setSelectedState] = useState(state);
   const [inputType, setInputType] = useState<'hourly' | 'annual'>('hourly');
-  const [hourlyWage, setHourlyWage] = useState('');
-  const [annualSalary, setAnnualSalary] = useState('');
+  const [hourlyWage, setHourlyWage] = useState('25');
+  const [annualSalary, setAnnualSalary] = useState('52000');
   const [hoursPerWeek, setHoursPerWeek] = useState('40');
   const [weeksPerYear, setWeeksPerYear] = useState('52');
   const [filingStatus, setFilingStatus] = useState<FilingStatus>('single');
   const [result, setResult] = useState<TaxResult | null>(null);
 
-  const handleCalculate = () => {
+  const currentStateName = stateName || SUPPORTED_STATES.find(s => s.slug === selectedState)?.name || 'USA';
+
+  const runCalculation = (currentStateVal = selectedState) => {
     const wage = parseFloat(hourlyWage) || 0;
     const salary = parseFloat(annualSalary) || 0;
     const hours = parseFloat(hoursPerWeek) || 0;
     const weeks = parseFloat(weeksPerYear) || 52;
 
     if ((inputType === 'hourly' && wage <= 0) || (inputType === 'annual' && salary <= 0) || hours <= 0) {
-      alert('Please enter valid positive numbers.');
       return;
     }
 
     const input: TaxInput = {
       hourlyWage: wage,
-      annualSalary: salary,
+      annualSalary: inputType === 'annual' ? salary : 0,
       hoursPerWeek: hours,
       weeksPerYear: weeks,
       filingStatus,
-      state,
+      state: currentStateVal,
     };
 
     const calculated = calculatePaycheck(input);
     setResult(calculated);
+  };
+
+  useEffect(() => {
+    runCalculation(selectedState);
+  }, [selectedState, inputType, filingStatus]);
+
+  const handleCalculate = () => {
+    const wage = parseFloat(hourlyWage) || 0;
+    const salary = parseFloat(annualSalary) || 0;
+    const hours = parseFloat(hoursPerWeek) || 0;
+
+    if ((inputType === 'hourly' && wage <= 0) || (inputType === 'annual' && salary <= 0) || hours <= 0) {
+      alert('Please enter valid positive numbers.');
+      return;
+    }
+
+    runCalculation(selectedState);
   };
 
   const pieSegments = result ? [
@@ -54,9 +74,31 @@ export default function CalculatorUI({ state, stateName }: CalculatorUIProps) {
 
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Calculate Your Take-Home Pay</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        {allowStateSelect ? 'Free USA Paycheck Calculator' : `Calculate Your ${currentStateName} Take-Home Pay`}
+      </h2>
 
       <div className="space-y-6">
+        {allowStateSelect && (
+          <div>
+            <label htmlFor="stateSelect" className="block text-sm font-semibold text-gray-700 mb-2">
+              Select Your State
+            </label>
+            <select
+              id="stateSelect"
+              value={selectedState}
+              onChange={(e) => setSelectedState(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all font-medium text-gray-900 bg-white"
+            >
+              {SUPPORTED_STATES.map((st) => (
+                <option key={st.slug} value={st.slug}>
+                  {st.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-2">Income Type</label>
           <div className="flex rounded-lg bg-gray-100 p-1">
@@ -209,14 +251,14 @@ export default function CalculatorUI({ state, stateName }: CalculatorUIProps) {
                   <span className="font-semibold text-red-600">-{formatCurrency(result.federalTax)}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-amber-50 rounded-lg">
-                  <span className="text-gray-600">State Tax ({stateName})</span>
+                  <span className="text-gray-600">State Tax ({currentStateName})</span>
                   <span className="font-semibold text-amber-600">-{formatCurrency(result.stateTax)}</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-emerald-50 rounded-lg">
                   <span className="text-gray-600">FICA</span>
                   <span className="font-semibold text-emerald-600">-{formatCurrency(result.ficaTax)}</span>
                 </div>
-                {state === 'california' && result.caSdi > 0 && (
+                {selectedState === 'california' && result.caSdi > 0 && (
                   <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
                     <span className="text-gray-600">CA SDI (1.1%)</span>
                     <span className="font-semibold text-purple-600">-{formatCurrency(result.caSdi)}</span>

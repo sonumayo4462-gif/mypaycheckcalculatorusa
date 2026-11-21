@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import CalculatorUI from '@/components/CalculatorUI';
 import { SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -13,8 +14,11 @@ export const metadata: Metadata = {
     'California paycheck calculator',
     'Texas paycheck calculator',
     'Florida paycheck calculator',
-    'New York paycheck calculator',
+    'Washington paycheck calculator',
+    'Nevada paycheck calculator',
     'Illinois paycheck calculator',
+    'Pennsylvania paycheck calculator',
+    'New York paycheck calculator',
     'take home pay calculator',
     'salary paycheck calculator',
   ],
@@ -57,11 +61,39 @@ const tools = [
     color: 'bg-amber-500',
   },
   {
+    name: 'Washington Paycheck Calculator',
+    href: '/washington',
+    icon: 'WA',
+    description: '0% personal state income tax. Free hourly and salary calculator for WA workers.',
+    color: 'bg-emerald-500',
+  },
+  {
+    name: 'Nevada Paycheck Calculator',
+    href: '/nevada',
+    icon: 'NV',
+    description: '0% personal state tax. Calculate hourly wages, salary, and tips in Las Vegas & NV.',
+    color: 'bg-yellow-500',
+  },
+  {
     name: 'New York Paycheck Calculator',
     href: '/new-york',
     icon: 'NY',
-    description: 'Progressive NY state tax 4%-6.85% plus local NYC resident income taxes.',
+    description: 'Progressive NY state tax 4%-8.82% plus local NYC resident income taxes.',
     color: 'bg-purple-500',
+  },
+  {
+    name: 'Illinois Paycheck Calculator',
+    href: '/illinois',
+    icon: 'IL',
+    description: 'Flat 4.95% state income tax rate for Chicago and all Illinois workers.',
+    color: 'bg-indigo-500',
+  },
+  {
+    name: 'Pennsylvania Paycheck Calculator',
+    href: '/pennsylvania',
+    icon: 'PA',
+    description: 'Lowest flat state tax rate in the USA at 3.07% for Philadelphia and PA.',
+    color: 'bg-cyan-500',
   },
   {
     name: 'Overtime Calculator',
@@ -158,13 +190,18 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Accurate hourly, weekly, and salary take-home pay calculations for USA workers. Calculate exact federal income tax, FICA deductions, and state tax withholdings with our free paycheck calculators.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link href="#calculators" className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
               Choose State Calculator
             </Link>
             <Link href="#guide" className="bg-white text-blue-600 border-2 border-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-blue-50 transition-colors">
               How Paychecks Are Calculated
             </Link>
+          </div>
+
+          {/* Interactive Homepage Paycheck Calculator */}
+          <div className="max-w-4xl mx-auto text-left shadow-2xl rounded-2xl">
+            <CalculatorUI allowStateSelect={true} />
           </div>
         </div>
       </section>

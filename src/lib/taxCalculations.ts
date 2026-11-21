@@ -66,9 +66,26 @@ const FEDERAL_BRACKETS_MARRIED = [
   { min: 768700, max: Infinity, rate: 0.37 },
 ];
 
+export const SUPPORTED_STATES = [
+  { slug: 'federal', name: 'Federal / General (0% State Tax)' },
+  { slug: 'texas', name: 'Texas (0% State Tax)' },
+  { slug: 'florida', name: 'Florida (0% State Tax)' },
+  { slug: 'washington', name: 'Washington (0% State Tax)' },
+  { slug: 'nevada', name: 'Nevada (0% State Tax)' },
+  { slug: 'california', name: 'California (1% - 12.3%)' },
+  { slug: 'new-york', name: 'New York (4% - 8.82%)' },
+  { slug: 'illinois', name: 'Illinois (4.95% Flat Tax)' },
+  { slug: 'pennsylvania', name: 'Pennsylvania (3.07% Flat Tax)' },
+];
+
 const STATE_TAX_CONFIGS: Record<string, { type: 'flat' | 'progressive'; rate?: number; brackets?: { min: number; max: number; rate: number }[] }> = {
+  federal: { type: 'flat', rate: 0 },
   texas: { type: 'flat', rate: 0 },
   florida: { type: 'flat', rate: 0 },
+  washington: { type: 'flat', rate: 0 },
+  nevada: { type: 'flat', rate: 0 },
+  illinois: { type: 'flat', rate: 0.0495 },
+  pennsylvania: { type: 'flat', rate: 0.0307 },
   california: {
     type: 'progressive',
     brackets: [
@@ -116,6 +133,10 @@ export function calculateStateTax(taxableIncome: number, state: string): number 
   const config = STATE_TAX_CONFIGS[state.toLowerCase()];
   if (!config) {
     return 0;
+  }
+
+  if (config.type === 'flat') {
+    return taxableIncome * (config.rate || 0);
   }
 
   if (config.type === 'progressive' && config.brackets) {
